@@ -1,4 +1,5 @@
 {
+  "homepage": "https://anuj1o0.github.io/portfolio-anuj",
   "name": "portfolio-anuj",
   "version": "0.1.0",
   "private": true,
@@ -24,6 +25,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "start": "react-scripts start",
