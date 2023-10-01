@@ -28,11 +28,11 @@ const Footer = () => {
         </ul>
 
         <div className="footer__social">
-          <a href="instagram.com" className="home__social-icon" target="blank">
+          <a href="https://www.instagram.com/_anuj._176/" className="home__social-icon" target="blank">
             <i className="bx bxl-instagram"></i>
           </a>
 
-          <a href="google.com" className="home__social-icon" target="blank">
+          <a href="https://www.linkedin.com/in/anuj-srivastava-755277259/" className="home__social-icon" target="blank">
             <i className="bx bxl-linkedin"></i>
           </a>
 
