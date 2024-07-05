@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./About.scss";
 import about from "../../assests/about.json";
-import CV from "../../assests/CV.pdf";
+import CV from "../../assests/CV1.pdf";
 import Info from './Info';
 import MotionWrap from '../wrapper/MotionWrap';
 import Lottie from "lottie-react"

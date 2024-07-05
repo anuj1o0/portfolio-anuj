@@ -116,32 +116,49 @@ const Qualifications = () => {
               </div>
             </div>
 
-            {/* <div className="qualification__content">
-              <div className="qualification__data">
-                <div></div>
+            <div className="qualification__data">
+              <div></div>
 
-                <div>
-                  <span className="qualification__rounder"></span>
-                  <span className="qualification__line"></span>
-                </div>
+              <div>
+                <span className="qualification__rounder"></span>
+                <span className="qualification__line"></span>
+              </div>
 
-                <div>
-                  <h3 className="qualification__title">Student</h3>
-                  <span className="qualification__subtitle">
-                    {" "}
-                    Woodward public school
-                  </span>
-                  <div className="qualification__calendar">
-                    <i className="uil uil-calendar-alt"></i> 2010-2021
-                  </div>
-                </div>
+              <div>
+                <h3 className="qualification__title">Web Developer</h3>
+                <span className="qualification__subtitle">
+                  {" "}
+                  School of Simple Living
+                </span>
+                <div className="qualification__calendar">
+                  <i className="uil uil-calendar-alt"></i>Nov 2023-Jan 2024</div>
+              </div>
 
-                <div>
+              {/* <div>
                   <span className="qualification__rounder"></span>
                   <div className="qualification__line"></div>
+                </div> */}
+            </div>
+
+            <div className="qualification__data">
+              <div>
+                <h3 className="qualification__title">Amazon ML Summer School Mentee</h3>
+                <span className="qualification__subtitle">
+                  {" "}
+                  Amazon
+                </span>
+                <div className="qualification__calendar">
+                  <i className="uil uil-calendar-alt"></i> July 2024
                 </div>
               </div>
-            </div> */}
+
+              <div>
+                <span className="qualification__rounder"></span>
+                <div className="qualification__line"></div>
+              </div>
+            </div>
+
+            
           </div>
         </div>
       </div>
