@@ -1,128 +1,146 @@
-import React, { useState, useEffect } from "react";
-import { AiFillEye, AiFillGithub } from "react-icons/ai";
-import { motion } from "framer-motion";
-// import AppWrap from "../../wrapper/AppWrap";
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import './Work.scss';
 import MotionWrap from '../wrapper/MotionWrap';
-import { urlFor, client } from "../../client";
-import "./Work.scss";
+
+const projects = [
+  {
+    title: 'StockSwabhava',
+    subtitle: 'Full-Stack Simulated Trading Engine',
+    description:
+      'Paper trading application with React frontend and FastAPI backend. Features real-time portfolio tracking, market data visualization, and a transactional trading engine with secure user auth.',
+    tech: ['React', 'FastAPI', 'SQLAlchemy', 'PostgreSQL', 'bcrypt'],
+    github: 'https://github.com/anuj1o0',
+    live: null,
+    tags: ['Full Stack', 'Web App'],
+    featured: true,
+    accent: '#818cf8',
+  },
+  {
+    title: 'QuillSense',
+    subtitle: 'Intelligent Content Extraction System',
+    description:
+      'Article extraction and YouTube video summarization platform using OpenAI. Reduces research time by 40% with intelligent NLP algorithms that boost content engagement by 40%.',
+    tech: ['React.js', 'RapidAPI', 'OpenAI', 'Node.js'],
+    github: 'https://github.com/anuj1o0',
+    live: 'https://github.com/anuj1o0',
+    tags: ['AI/ML', 'Web App'],
+    featured: true,
+    accent: '#22d3ee',
+  },
+  {
+    title: 'MoodSync',
+    subtitle: 'AI Facial Sentiment Analysis System',
+    description:
+      'Emotion detection system using CNN trained on FER 2013 dataset. Achieves 64.5% accuracy in real-time facial expression analysis — 20% improvement over baseline methods.',
+    tech: ['TensorFlow', 'CNN', 'Python', 'Google Colab'],
+    github: 'https://github.com/anuj1o0',
+    live: null,
+    tags: ['AI/ML', 'ML'],
+    featured: false,
+    accent: '#34d399',
+  },
+];
+
+const allTags = ['All', 'Full Stack', 'AI/ML', 'Web App', 'ML'];
 
 const Work = () => {
-  const [works, setWorks] = useState([]);
-  const [filterWork, setFilterWork] = useState([]);
-  const [activeFilter, setActiveFilter] = useState("All");
-  const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
+  const [activeTag, setActiveTag] = useState('All');
 
-  useEffect(() => {
-    const query = '*[_type == "works"]';
-
-    client.fetch(query).then((data) => {
-      setWorks(data);
-      setFilterWork(data);
-    });
-  }, []);
-
-  const handleWorkFilter = (item) => {
-    setActiveFilter(item);
-    setAnimateCard([{ y: 100, opacity: 0 }]);
-
-    setTimeout(() => {
-      setAnimateCard([{ y: 0, opacity: 1 }]);
-
-      if (item === 'All') {
-        setFilterWork(works);
-      } else {
-        setFilterWork(works.filter((work) => work.tags.includes(item)));
-      }
-    }, 500);
-  };
+  const filtered =
+    activeTag === 'All'
+      ? projects
+      : projects.filter((p) => p.tags.includes(activeTag));
 
   return (
-    <>
-    <section className='work section ' id="work">
-      <h2 className="head-text">
-        My Creative
-        <span> Portfolio </span>
-        Section
-        <span> </span>
-      </h2>
+    <section className="work section" id="work">
+      <div className="container">
+        <div className="work__header">
+          <span className="section-tag">{'// projects'}</span>
+          <h2 className="section-title">
+            Things I've <span className="gradient-text">Built</span>
+          </h2>
+          <p className="section-subtitle">
+            A selection of projects that showcase my full-stack and AI/ML capabilities.
+          </p>
+        </div>
 
-      <div className="app__work-filter">
-        {["UI/UX", "Web App", "Mobile App", "React JS", "All"].map(
-          (item, index) => (
-            <div
-              key={index}
-              onClick={() => handleWorkFilter(item)}
-              className={`app__work-filter-item app__flex p-text ${
-                activeFilter === item ? "item-active" : ""
-              }`}
+        <div className="work__filters">
+          {allTags.map((tag) => (
+            <button
+              key={tag}
+              className={`work__filter-btn${activeTag === tag ? ' work__filter-btn--active' : ''}`}
+              onClick={() => setActiveTag(tag)}
             >
-              {item}
-            </div>
-          )
-        )}
+              {tag}
+            </button>
+          ))}
+        </div>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTag}
+            className="work__grid"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.35 }}
+          >
+            {filtered.map((project) => (
+              <ProjectCard key={project.title} project={project} />
+            ))}
+          </motion.div>
+        </AnimatePresence>
       </div>
-
-      <motion.div
-        animate={animateCard}
-        transition={{ duration: 0.5, delayChildren: 0.5 }}
-        className="app__work-portfolio"
-      >
-        {filterWork.map((work, index) => (
-          <div className="app__work-item app__flex" key={index}>
-            <div className="app__work-img app__flex">
-              <img src={urlFor(work.imgUrl)} alt={work.name} />
-
-              <motion.div
-                whileHover={{ opacity: [0, 1] }}
-                transition={{
-                  duration: 0.25,
-                  ease: "easeInOut",
-                  staggerChildren: 0.5,
-                }}
-                className="app__work-hover app__flex"
-              >
-                <a href={work.projectLink} target="_blank" rel="noreferrer">
-                  <motion.div
-                    whileInView={{ scale: [0, 1] }}
-                    whileHover={{ scale: [1, 0.9] }}
-                    transition={{ duration: 0.25 }}
-                    className="app__flex"
-                  >
-                    <AiFillEye />
-                  </motion.div>
-                </a>
-
-                <a href={work.codeLink} target="_blank" rel="noreferrer">
-                  <motion.div
-                    whileInView={{ scale: [0, 1] }}
-                    whileHover={{ scale: [1, 0.9] }}
-                    transition={{ duration: 0.25 }}
-                    className="app__flex"
-                  >
-                    <AiFillGithub />
-                  </motion.div>
-                </a>
-              </motion.div>
-            </div>
-
-            <div className="app__work-content app__flex">
-              <h4 className="bold-text">{work.title}</h4>
-              <p className="p-text" style={{ marginTop: 10 }}>
-                {work.description}
-              </p>
-
-              <div className="app__work-tag app__flex">
-                <p className="p-text">{work.tags[0]}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </motion.div>
-      </section>
-    </>
+    </section>
   );
 };
 
-export default 
-  MotionWrap(Work,'app__works')
-  
+const ProjectCard = ({ project }) => {
+  const { title, subtitle, description, tech, github, live, featured, accent } = project;
+
+  return (
+    <div className="project-card" style={{ '--accent': accent }}>
+      <div className="project-card__top">
+        <div className="project-card__icons">
+          <div className="project-card__folder">
+            <i className="bx bx-folder" />
+          </div>
+          <div className="project-card__links">
+            {github && (
+              <a href={github} target="_blank" rel="noreferrer" title="GitHub">
+                <i className="bx bxl-github" />
+              </a>
+            )}
+            {live && (
+              <a href={live} target="_blank" rel="noreferrer" title="Live Demo">
+                <i className="bx bx-link-external" />
+              </a>
+            )}
+          </div>
+        </div>
+        {featured && (
+          <span className="project-card__featured">Featured</span>
+        )}
+      </div>
+
+      <div className="project-card__body">
+        <h3 className="project-card__title">{title}</h3>
+        <p className="project-card__subtitle">{subtitle}</p>
+        <p className="project-card__desc">{description}</p>
+      </div>
+
+      <div className="project-card__footer">
+        <div className="project-card__tech">
+          {tech.map((t) => (
+            <span key={t} className="tech-tag">{t}</span>
+          ))}
+        </div>
+      </div>
+
+      <div className="project-card__glow" />
+    </div>
+  );
+};
+
+export default MotionWrap(Work, 'app__works');
