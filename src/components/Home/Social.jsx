@@ -1,21 +1,46 @@
-import React from 'react'
+import React from 'react';
+
+const socials = [
+  {
+    label: 'GitHub',
+    href: 'https://github.com/anuj1o0',
+    icon: 'bxl-github',
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/anuj-srivastava-755277259/',
+    icon: 'bxl-linkedin',
+  },
+  {
+    label: 'LeetCode',
+    href: 'https://leetcode.com/u/anujsrivastava176/',
+    icon: 'bx-code-alt',
+  },
+  {
+    label: 'Email',
+    href: 'mailto:anujsrivastava176@gmail.com',
+    icon: 'bx-envelope',
+  },
+];
 
 const Social = () => {
   return (
-    <div className='home__social'>
-      <a href="https://www.instagram.com/_anuj._176/" className='home__social-icon' target="blank">
-        <i className="uil uil-instagram"></i>
-      </a>
-
-      <a href="https://www.linkedin.com/in/anuj-srivastava-755277259/" className='home__social-icon' target="blank">
-        <i className="uil uil-linkedin"></i>
-      </a>
-
-      <a href="https://github.com/anuj1o0" className='home__social-icon' target="blank">
-        <i className="uil uil-github-alt"></i>
-      </a>
+    <div className="home__socials">
+      {socials.map(({ label, href, icon }) => (
+        <a
+          key={label}
+          href={href}
+          target={href.startsWith('mailto') ? undefined : '_blank'}
+          rel="noreferrer"
+          className="home__social-link"
+          aria-label={label}
+          title={label}
+        >
+          <i className={`bx ${icon}`} />
+        </a>
+      ))}
     </div>
   );
 };
 
-export default Social
+export default Social;

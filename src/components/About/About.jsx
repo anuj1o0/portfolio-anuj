@@ -1,100 +1,90 @@
-import React, { useEffect, useState } from "react";
-import "./About.scss";
-import about from "../../assests/about.json";
-import CV from "../../assests/CV1.pdf";
-import Info from './Info';
+import React from 'react';
+import './About.scss';
+import CV from '../../assests/CV1.pdf';
 import MotionWrap from '../wrapper/MotionWrap';
-import Lottie from "lottie-react"
+
+const stats = [
+  { value: '9.26', label: 'CGPA', icon: 'bxs-graduation' },
+  { value: '650+', label: 'LeetCode Solved', icon: 'bx-code-curly' },
+  { value: '1700+', label: 'Contest Rating', icon: 'bx-trophy' },
+  { value: '2+', label: 'Internships', icon: 'bx-briefcase-alt-2' },
+];
 
 const About = () => {
-  const [mousePosition, setMousePosition] = useState({
-    x: 0,
-    y:0
-  });
-  const [cursorVariant, setCursorVariant] = useState("default")
-
-
-  useEffect(() => {
-    const mouseMove = e => {
-      setMousePosition({
-        x: e.clientX,
-        y: e.clientY
-      })
-    }
-
-    window.addEventListener("mousemove", mouseMove);
-
-    return()=>{
-      window.removeEventListener("mousemove",mouseMove);
-    }
-
-  }, []);
-
-  const variants = {
-    default:{
-      x: mousePosition.x - 16,
-      y: mousePosition.y - 16
-    },
-    text:{
-      height: 150,
-      width: 150,
-      x: mousePosition.x - 75,
-      y: mousePosition.y - 75,
-      backgroundColor: "#C4DFDF",
-      mixBlendMode: "darken"
-    }
-  }
-
-  const textEnter = () => setCursorVariant("text");
-  const textLeave = () => setCursorVariant("default");
   return (
-    <section className='about section' id='about'>
-        <h2 onMouseEnter={textEnter} onMouseLeave={textLeave}  className="section__title">About Me</h2>
-        <span  className="section__subtitle">My introduction</span>
-
-        <div className="about__container container grid">
-          <Lottie className='about__img'  animationData={about}/>
-            {/* <img src="../../assets/pfp.jpg" alt="" /> */}
-
-            <div className="about__data">
-                <Info/>
-
-                <p onMouseEnter={textEnter} onMouseLeave={textLeave} className="about__description">
-                Hello! I'm an enthusiastic developer with an appetite for exploring the coding. <br /> My passion lies in bringing ideas to life as websites and apps, crafting them into user-friendly and visually captivating experiences. <br />
-               Exploring the endless possibilities of AI 
-                </p>
-
-                <a download="" href={CV} className='button button--flex'>
-                  Download CV <svg
-                class="button__icon"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path
-                  d="M15.25 22.7502H9.25C3.82 22.7502 1.5 20.4302 1.5 15.0002V9.00024C1.5 3.57024 3.82 1.25024 9.25 1.25024H14.25C14.66 1.25024 15 1.59024 15 2.00024C15 2.41024 14.66 2.75024 14.25 2.75024H9.25C4.64 2.75024 3 4.39024 3 9.00024V15.0002C3 19.6102 4.64 21.2502 9.25 21.2502H15.25C19.86 21.2502 21.5 19.6102 21.5 15.0002V10.0002C21.5 9.59024 21.84 9.25024 22.25 9.25024C22.66 9.25024 23 9.59024 23 10.0002V15.0002C23 20.4302 20.68 22.7502 15.25 22.7502Z"
-                  fill="var(--container-color)"
-                ></path>
-                <path
-                  d="M22.25 10.7502H18.25C14.83 10.7502 13.5 9.42023 13.5 6.00023V2.00023C13.5 1.70023 13.68 1.42023 13.96 1.31023C14.24 1.19023 14.56 1.26023 14.78 1.47023L22.78 9.47023C22.99 9.68023 23.06 10.0102 22.94 10.2902C22.82 10.5702 22.55 10.7502 22.25 10.7502ZM15 3.81023V6.00023C15 8.58023 15.67 9.25023 18.25 9.25023H20.44L15 3.81023Z"
-                  fill="var(--container-color)"
-                ></path>
-                <path
-                  d="M13.25 13.7502H7.25C6.84 13.7502 6.5 13.4102 6.5 13.0002C6.5 12.5902 6.84 12.2502 7.25 12.2502H13.25C13.66 12.2502 14 12.5902 14 13.0002C14 13.4102 13.66 13.7502 13.25 13.7502Z"
-                  fill="var(--container-color)"
-                ></path>
-                <path
-                  d="M11.25 17.7502H7.25C6.84 17.7502 6.5 17.4102 6.5 17.0002C6.5 16.5902 6.84 16.2502 7.25 16.2502H11.25C11.66 16.2502 12 16.5902 12 17.0002C12 17.4102 11.66 17.7502 11.25 17.7502Z"
-                  fill="var(--container-color)"
-                ></path>
-              </svg>
-                </a>
-            </div>
+    <section className="about section" id="about">
+      <div className="container">
+        <div className="about__header">
+          <span className="section-tag">{'// about me'}</span>
+          <h2 className="section-title">
+            Passionate Engineer &amp; <span className="gradient-text">Problem Solver</span>
+          </h2>
+          <p className="section-subtitle">
+            Building meaningful software at the intersection of full-stack development and AI.
+          </p>
         </div>
-    </section>
-  )
-}
 
-export default MotionWrap(About, "about")
+        <div className="about__grid">
+          {/* Left: Image + tags */}
+          <div className="about__left">
+            <div className="about__img-wrapper">
+              <img src={require('../../assests/pfp.jpg')} alt="Anuj Srivastava" className="about__img" />
+              <div className="about__img-badge about__img-badge--1">
+                <i className="bx bxs-zap" />
+                <span>Open to Opportunities</span>
+              </div>
+              <div className="about__img-badge about__img-badge--2">
+                <i className="bx bxs-map" />
+                <span>Mumbai, India</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Text + stats */}
+          <div className="about__right">
+            <div className="about__text">
+              <p>
+                I'm a final-year B.Tech student in Computer Science &amp; Engineering (AI &amp; ML)
+                at <strong>Bennett University</strong> with a CGPA of 9.26. Currently interning as an
+                SDE at <strong>Here Technologies</strong>, where I engineered a production automation
+                framework that saved 90 engineer-hours per month.
+              </p>
+              <p>
+                I love building end-to-end products — from React frontends to FastAPI backends to
+                CNN models. When not coding, I'm grinding LeetCode (650+ problems, 1700+ rating) or
+                participating in hackathons.
+              </p>
+            </div>
+
+            <div className="about__stats">
+              {stats.map(({ value, label, icon }) => (
+                <div key={label} className="about__stat-card">
+                  <div className="about__stat-icon">
+                    <i className={`bx ${icon}`} />
+                  </div>
+                  <div className="about__stat-info">
+                    <span className="about__stat-value gradient-text">{value}</span>
+                    <span className="about__stat-label">{label}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="about__actions">
+              <a href={CV} download className="btn btn-primary">
+                <i className="bx bx-download" />
+                Download CV
+              </a>
+              <a href="#contact" className="btn btn-outline">
+                <i className="bx bx-send" />
+                Get In Touch
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default MotionWrap(About, 'about');

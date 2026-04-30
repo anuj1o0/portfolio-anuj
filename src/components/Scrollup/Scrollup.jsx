@@ -1,24 +1,28 @@
-import React from 'react'
-import './Scrollup.css'
+import React, { useState, useEffect } from 'react';
+import './Scrollup.css';
 
 const Scrollup = () => {
+  const [visible, setVisible] = useState(false);
 
-    window.addEventListener("scroll", function () {
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 400);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
-        const scrollUp = document.querySelector(".scrollup"); 
-        
-        // when the scroll is higher than 560 viewport height, add the show-scroll class to a tag with the scroll-top cl
-        
-        if (this.scrollY >= 560) scrollUp.classList.add
-        ("show-scroll");
-        
-        else scrollUp.classList.remove("show-scroll");
-    })
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <a href="#" className='scrollup'>
-        <i className='uil uil-arrow-up scrollup__icon'></i>
-    </a>
-  )
-}
+    <button
+      className={`scroll-top${visible ? ' scroll-top--visible' : ''}`}
+      onClick={scrollToTop}
+      aria-label="Scroll to top"
+    >
+      <i className="bx bx-up-arrow-alt" />
+    </button>
+  );
+};
 
-export default Scrollup
+export default Scrollup;

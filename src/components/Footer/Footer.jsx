@@ -1,53 +1,79 @@
-import React from "react";
+import React from 'react';
 import './Footer.css';
 
+const navLinks = [
+  { label: 'About', href: '#about' },
+  { label: 'Experience', href: '#qualifications' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Projects', href: '#work' },
+  { label: 'Contact', href: '#contact' },
+];
+
+const socials = [
+  { label: 'GitHub', href: 'https://github.com/anuj1o0', icon: 'bxl-github' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/anuj-srivastava-755277259/', icon: 'bxl-linkedin' },
+  { label: 'LeetCode', href: 'https://leetcode.com/u/anujsrivastava176/', icon: 'bx-code-alt' },
+  { label: 'Email', href: 'mailto:anujsrivastava176@gmail.com', icon: 'bx-envelope' },
+];
+
 const Footer = () => {
+  const year = new Date().getFullYear();
+
   return (
     <footer className="footer">
       <div className="footer__container container">
-        <h1 className="footer__title">Anuj</h1>
-
-        <ul className="footer__list">
-          <li>
-            <a href="#about" className="footer__link">
-              About
+        <div className="footer__top">
+          <div className="footer__brand">
+            <a href="#home" className="footer__logo">
+              <span className="logo-bracket">&lt;</span>
+              <span>Anuj</span>
+              <span className="gradient-text">.dev</span>
+              <span className="logo-bracket">/&gt;</span>
             </a>
-          </li>
+            <p className="footer__brand-desc">
+              Building impactful software at the intersection of full-stack development and AI.
+            </p>
+          </div>
 
-          <li>
-            <a href="#skills" className="footer__link">
-              Skills
-            </a>
-          </li>
+          <div className="footer__links">
+            <span className="footer__links-title">Navigation</span>
+            <ul>
+              {navLinks.map(({ label, href }) => (
+                <li key={label}>
+                  <a href={href} className="footer__link">{label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          <li>
-            <a href="#work" className="footer__link">
-              Portfolio
-            </a>
-          </li>
-        </ul>
-
-        <div className="footer__social">
-          <a href="https://www.instagram.com/_anuj._176/" className="home__social-icon" target="blank">
-            <i className="bx bxl-instagram"></i>
-          </a>
-
-          <a href="https://www.linkedin.com/in/anuj-srivastava-755277259/" className="home__social-icon" target="blank">
-            <i className="bx bxl-linkedin"></i>
-          </a>
-
-          <a
-            href="https://github.com/anuj1o0"
-            className="home__social-icon"
-            target="blank"
-          >
-            <i className="bx bxl-github"></i>
-          </a>
+          <div className="footer__connect">
+            <span className="footer__links-title">Connect</span>
+            <div className="footer__socials">
+              {socials.map(({ label, href, icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith('http') ? '_blank' : undefined}
+                  rel="noreferrer"
+                  className="footer__social-link"
+                  aria-label={label}
+                  title={label}
+                >
+                  <i className={`bx ${icon}`} />
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <span className="footer__copy">
-            &#169; Anuj Srivastava. All rights reserved
-        </span>
+        <div className="footer__bottom">
+          <span className="footer__copy">
+            © {year} Anuj Srivastava. All rights reserved.
+          </span>
+          <span className="footer__made">
+            Designed &amp; Built with <span style={{ color: '#f87171' }}>♥</span> in Mumbai
+          </span>
+        </div>
       </div>
     </footer>
   );
