@@ -1,0 +1,256 @@
+.freelance {
+  width: 100%;
+}
+
+.freelance__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.freelance__header .section-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== Services grid ===== */
+.freelance__services {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 4.5rem;
+}
+
+.service-card {
+  position: relative;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.75rem 1.5rem;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+.service-card__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  margin-bottom: 1.1rem;
+}
+
+.service-card__icon i {
+  font-size: 1.6rem;
+  color: var(--accent);
+}
+
+.service-card__title {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.service-card__desc {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-2);
+}
+
+/* ===== Showcase ===== */
+.freelance__showcase-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.freelance__showcase-header h3 {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.35rem;
+}
+
+.freelance__showcase-header p {
+  color: var(--text-2);
+  font-size: 0.95rem;
+}
+
+.freelance__showcase {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 4.5rem;
+}
+
+.showcase-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.showcase-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.2);
+}
+
+.showcase-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem;
+  background: color-mix(in srgb, var(--accent) 8%, var(--bg));
+  border-bottom: 1px solid var(--border);
+}
+
+.showcase-card__browser-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.showcase-card__browser-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.showcase-card__browser-dots span:nth-child(1) { background: #f87171; }
+.showcase-card__browser-dots span:nth-child(2) { background: #fbbf24; }
+.showcase-card__browser-dots span:nth-child(3) { background: #34d399; }
+
+.showcase-card__site-icon {
+  font-size: 1.4rem;
+  color: var(--accent);
+}
+
+.showcase-card__body {
+  padding: 1.4rem 1.25rem 1.1rem;
+  flex: 1;
+}
+
+.showcase-card__name {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.showcase-card__desc {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-2);
+  margin-bottom: 1rem;
+}
+
+.showcase-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.showcase-card__visit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  border-top: 1px solid var(--border);
+  transition: background 0.25s ease, gap 0.25s ease;
+}
+
+.showcase-card__visit:hover {
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  gap: 0.7rem;
+}
+
+.showcase-card__visit i {
+  font-size: 1.1rem;
+}
+
+/* ===== CTA banner ===== */
+.freelance__cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2.25rem 2.5rem;
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--primary) 14%, var(--bg-2)),
+    color-mix(in srgb, var(--secondary) 10%, var(--bg-2))
+  );
+  border: 1px solid var(--border);
+}
+
+.freelance__cta-text h3 {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.35rem;
+}
+
+.freelance__cta-text p {
+  color: var(--text-2);
+  font-size: 0.95rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .freelance__services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .freelance__showcase {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .freelance__services,
+  .freelance__showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .freelance__cta {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.75rem 1.5rem;
+  }
+}

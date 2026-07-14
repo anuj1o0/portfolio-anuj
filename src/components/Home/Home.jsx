@@ -28,13 +28,13 @@ const Home = () => {
           <Social />
           <div className="home__stats">
             <div className="home__stat">
-              <span className="home__stat-value gradient-text">9.26</span>
-              <span className="home__stat-label">CGPA</span>
+              <span className="home__stat-value gradient-text">1</span>
+              <span className="home__stat-label">Live SaaS</span>
             </div>
             <div className="home__stat-divider" />
             <div className="home__stat">
-              <span className="home__stat-value gradient-text">650+</span>
-              <span className="home__stat-label">LeetCode</span>
+              <span className="home__stat-value gradient-text">90+</span>
+              <span className="home__stat-label">Hrs Automated</span>
             </div>
             <div className="home__stat-divider" />
             <div className="home__stat">

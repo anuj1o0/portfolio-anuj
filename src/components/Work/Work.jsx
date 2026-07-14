@@ -5,10 +5,22 @@ import MotionWrap from '../wrapper/MotionWrap';
 
 const projects = [
   {
-    title: 'StockSwabhava',
-    subtitle: 'Full-Stack Simulated Trading Engine',
+    title: 'BankXL',
+    subtitle: 'AI-Powered SaaS · Live Product with Paying Users',
     description:
-      'Paper trading application with React frontend and FastAPI backend. Features real-time portfolio tracking, market data visualization, and a transactional trading engine with secure user auth.',
+      'Production SaaS converting bank statement PDFs into Excel, CSV & JSON in seconds. Hybrid AI parsing pipeline (Claude Vision + Gemini) supporting 500+ bank formats, with tiered billing, Supabase auth, and real paying customers.',
+    tech: ['Next.js 14', 'TypeScript', 'Supabase', 'Claude API', 'Razorpay'],
+    github: null,
+    live: 'https://banlxlai.com',
+    tags: ['SaaS', 'Full Stack', 'AI/ML'],
+    featured: true,
+    accent: '#f59e0b',
+  },
+  {
+    title: 'StockSwabhava',
+    subtitle: 'Scalable Simulated Trading Engine',
+    description:
+      'Full-stack paper-trading app with a transactional order engine, weighted-average buy price, virtual cash management, and bcrypt auth. Unit & integration tests across all critical trading paths, designed for horizontal scalability.',
     tech: ['React', 'FastAPI', 'SQLAlchemy', 'PostgreSQL', 'bcrypt'],
     github: 'https://github.com/anuj1o0',
     live: null,
@@ -36,13 +48,13 @@ const projects = [
     tech: ['TensorFlow', 'CNN', 'Python', 'Google Colab'],
     github: 'https://github.com/anuj1o0',
     live: null,
-    tags: ['AI/ML', 'ML'],
+    tags: ['AI/ML'],
     featured: false,
     accent: '#34d399',
   },
 ];
 
-const allTags = ['All', 'Full Stack', 'AI/ML', 'Web App', 'ML'];
+const allTags = ['All', 'SaaS', 'Full Stack', 'AI/ML', 'Web App'];
 
 const Work = () => {
   const [activeTag, setActiveTag] = useState('All');

@@ -8,12 +8,12 @@ const socials = [
   },
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/anuj-srivastava-755277259/',
+    href: 'https://linkedin.com/in/anuj-srivastava090',
     icon: 'bxl-linkedin',
   },
   {
     label: 'LeetCode',
-    href: 'https://leetcode.com/u/anujsrivastava176/',
+    href: 'https://leetcode.com/Anuj_098/',
     icon: 'bx-code-alt',
   },
   {

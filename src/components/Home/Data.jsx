@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import CV from '../../assests/CV1.pdf';
+import CV from '../../assests/Anuj_Srivastava_Resume.pdf';
 
 const roles = [
-  'Full Stack Developer',
-  'ML Engineer',
-  'Problem Solver',
-  'SDE Intern @ Here',
+  'Software Engineer @ HERE',
+  'Freelance Web Developer',
+  'SaaS Builder',
+  'AI-First Engineer',
 ];
 
 const Data = () => {
@@ -39,7 +39,7 @@ const Data = () => {
     <div className="home__data">
       <div className="home__badge">
         <span className="home__badge-dot" />
-        SDE Intern @ Here Technologies · Mumbai
+        Software Engineer II @ HERE Technologies · Mumbai
       </div>
 
       <h1 className="home__name">
@@ -53,19 +53,24 @@ const Data = () => {
       </div>
 
       <p className="home__bio">
-        B.Tech CSE (AI &amp; ML) student at Bennett University building
-        production-grade systems. Passionate about full-stack development,
-        machine learning, and solving hard problems.
+        I build production systems at HERE Technologies and ship products of my
+        own — like <a href="https://banlxlai.com" target="_blank" rel="noreferrer" className="home__bio-link">BankXL</a>,
+        a live AI SaaS with paying users. Also available for freelance work:
+        modern websites, SaaS platforms, and AI integrations.
       </p>
 
       <div className="home__actions">
         <a href="#work" className="btn btn-primary">
           <i className="bx bx-grid-alt" />
-          View Projects
+          View My Work
         </a>
-        <a href={CV} download className="btn btn-outline">
+        <a href="#freelance" className="btn btn-outline">
+          <i className="bx bx-briefcase" />
+          Hire Me
+        </a>
+        <a href={CV} download className="btn btn-ghost">
           <i className="bx bx-download" />
-          Download CV
+          Resume
         </a>
       </div>
     </div>

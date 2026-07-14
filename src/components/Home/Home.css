@@ -157,6 +157,17 @@
   max-width: 480px;
 }
 
+.home__bio-link {
+  color: var(--primary);
+  font-weight: 600;
+  border-bottom: 1px dashed var(--primary);
+  transition: opacity 0.25s ease;
+}
+
+.home__bio-link:hover {
+  opacity: 0.75;
+}
+
 .home__actions {
   display: flex;
   gap: 0.875rem;
