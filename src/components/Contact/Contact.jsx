@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './Contact.scss';
-import { client } from '../../client';
 import MotionWrap from '../wrapper/MotionWrap';
 
 const contactInfo = [
@@ -38,6 +37,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -46,21 +46,28 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
+    setError(false);
 
-    client
-      .create({
-        _type: 'contact',
+    fetch('https://formsubmit.co/ajax/anujsrivastava176@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
         name: formData.name,
         email: formData.email,
         message: formData.message,
-      })
-      .then(() => {
+        _subject: `Portfolio inquiry from ${formData.name}`,
+        _template: 'table',
+      }),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error('Failed to send');
         setLoading(false);
         setSubmitted(true);
       })
       .catch((err) => {
         console.error(err);
         setLoading(false);
+        setError(true);
       });
   };
 
@@ -158,6 +165,13 @@ const Contact = () => {
                     required
                   />
                 </div>
+
+                {error && (
+                  <p className="contact__error">
+                    Something went wrong — please email me directly at{' '}
+                    <a href="mailto:anujsrivastava176@gmail.com">anujsrivastava176@gmail.com</a>.
+                  </p>
+                )}
 
                 <button
                   type="submit"

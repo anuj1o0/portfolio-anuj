@@ -124,6 +124,17 @@
   gap: 1.25rem;
 }
 
+.contact__error {
+  font-size: 0.85rem;
+  color: #f87171;
+  line-height: 1.6;
+
+  a {
+    color: var(--primary);
+    text-decoration: underline;
+  }
+}
+
 .form-group {
   display: flex;
   flex-direction: column;

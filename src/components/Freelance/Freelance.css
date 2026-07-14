@@ -7,6 +7,11 @@
   margin-bottom: 3rem;
 }
 
+.freelance__header .section-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* ===== Services grid ===== */
 .freelance__services {
   display: grid;
