@@ -21,7 +21,7 @@ const contactInfo = [
   {
     label: 'LinkedIn',
     value: 'anuj-srivastava',
-    href: 'https://www.linkedin.com/in/anuj-srivastava-755277259/',
+    href: 'https://linkedin.com/in/anuj-srivastava090',
     icon: 'bxl-linkedin',
     color: '#0A66C2',
   },
@@ -73,7 +73,7 @@ const Contact = () => {
             Let's <span className="gradient-text">Work Together</span>
           </h2>
           <p className="section-subtitle">
-            Open to internships, full-time roles, and interesting project collaborations.
+            Open to freelance projects, collaborations, and interesting product ideas.
           </p>
         </div>
 
@@ -81,8 +81,8 @@ const Contact = () => {
           {/* Left: Info */}
           <div className="contact__info">
             <p className="contact__tagline">
-              Whether you have a role in mind, a project to discuss, or just want to say hi —
-              my inbox is always open.
+              Need a website, a SaaS build, or an AI integration? Or just want to
+              talk shop — my inbox is always open.
             </p>
 
             <div className="contact__cards">

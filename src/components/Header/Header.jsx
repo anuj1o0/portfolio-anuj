@@ -6,8 +6,8 @@ const navLinks = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Experience', href: '#qualifications' },
-  { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#work' },
+  { label: 'Freelance', href: '#freelance' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -68,12 +68,7 @@ const Header = () => {
                 <i className="bx bx-moon" />
               )}
             </button>
-            <a
-              href="https://www.linkedin.com/in/anuj-srivastava-755277259/"
-              target="_blank"
-              rel="noreferrer"
-              className="btn btn-primary header__cta"
-            >
+            <a href="#freelance" className="btn btn-primary header__cta">
               Hire Me
             </a>
           </li>

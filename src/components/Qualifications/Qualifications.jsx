@@ -10,37 +10,40 @@ const tabs = [
 
 const experienceItems = [
   {
-    role: 'SDE Intern',
-    org: 'Here Technologies',
-    date: 'July 2025 – Present',
+    role: 'Software Engineer II',
+    org: 'HERE Technologies',
+    date: 'July 2026 – Present',
     location: 'Mumbai, India',
     current: true,
     color: 'var(--primary)',
     bullets: [
-      'Built production automation framework in 2 months (4 months ahead of schedule) — reduced 24-hr/week manual task to 1 hour, saving 90 engineer-hours monthly.',
-      'Working on high-priority triage and root-cause analysis for client-facing data anomalies (Suzuki, BMW).',
+      'Full-time software engineer working on ADAS map production systems for global automotive OEMs.',
+      'Promoted to full-time after a high-impact internship delivering production automation across 6+ programs.',
+    ],
+  },
+  {
+    role: 'SDE Intern',
+    org: 'HERE Technologies',
+    date: 'July 2025 – July 2026',
+    location: 'Mumbai, India',
+    current: false,
+    color: 'var(--secondary)',
+    bullets: [
+      'Built an end-to-end pipeline automation framework for ADAS map production across 6+ automotive programs (BMW, Continental, Subaru, GM-ISA) using GitLab CI/CD, Splunk, AWS S3 & Confluence APIs — saving 90+ engineer-hours monthly.',
+      'Developed automated attribute deviation analysis on AWS S3, flagging threshold breaches and generating stakeholder-ready reports for proactive quality gating.',
+      'Led 30+ root cause analyses for map attribute deviations across Tier-1 OEM releases in EU and NA regions.',
+      'Authored ISA speed limit solution specifications covering regulatory rules across 4 country frameworks (Spain, Portugal, Turkey, UK).',
     ],
   },
   {
     role: 'Amazon ML Summer School Mentee',
     org: 'Amazon',
-    date: 'July 2024',
+    date: 'July – Aug 2024',
     location: 'Remote',
     current: false,
     color: '#FF9900',
     bullets: [
-      'Selected from Top 3,000 students nationwide for Amazon\'s advanced ML program covering DL, NLP, and recommendation systems.',
-    ],
-  },
-  {
-    role: 'Web Developer',
-    org: 'School of Simple Living',
-    date: 'Nov 2023 – Jan 2024',
-    location: 'Remote',
-    current: false,
-    color: 'var(--secondary)',
-    bullets: [
-      'Designed and developed the organization\'s web platform using React, improving UX and digital presence.',
+      'Selected from a highly competitive national pool for Amazon\'s intensive ML mentorship — Deep Learning, Probabilistic Graphical Models, Dimensionality Reduction, and NLP, taught by Amazon Applied Scientists.',
     ],
   },
 ];
@@ -49,9 +52,9 @@ const educationItems = [
   {
     degree: 'B.Tech — Computer Science & Engineering (AI & ML)',
     institution: 'Bennett University',
-    date: 'Sept 2022 – May 2026',
+    date: 'Sept 2022 – May 2026 · Graduated',
     location: 'Greater Noida, India',
-    grade: 'CGPA: 9.26',
+    grade: 'CGPA: 9.15',
     color: 'var(--primary)',
     details: [
       'Specialization in Artificial Intelligence & Machine Learning.',
@@ -121,7 +124,7 @@ const Qualifications = () => {
               <div className="qual__exp-grid">
                 {experienceItems.map((item, i) => (
                   <motion.div
-                    key={item.org}
+                    key={`${item.role}-${item.org}`}
                     className={`exp-card${item.current ? ' exp-card--current' : ''}`}
                     style={{ '--card-accent': item.color }}
                     variants={cardVariants}

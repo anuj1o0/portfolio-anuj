@@ -4,15 +4,15 @@ import './Footer.css';
 const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Experience', href: '#qualifications' },
-  { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#work' },
+  { label: 'Freelance', href: '#freelance' },
   { label: 'Contact', href: '#contact' },
 ];
 
 const socials = [
   { label: 'GitHub', href: 'https://github.com/anuj1o0', icon: 'bxl-github' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/anuj-srivastava-755277259/', icon: 'bxl-linkedin' },
-  { label: 'LeetCode', href: 'https://leetcode.com/u/anujsrivastava176/', icon: 'bx-code-alt' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/anuj-srivastava090', icon: 'bxl-linkedin' },
+  { label: 'LeetCode', href: 'https://leetcode.com/Anuj_098/', icon: 'bx-code-alt' },
   { label: 'Email', href: 'mailto:anujsrivastava176@gmail.com', icon: 'bx-envelope' },
 ];
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import './About.scss';
-import CV from '../../assests/CV1.pdf';
+import CV from '../../assests/Anuj_Srivastava_Resume.pdf';
 import MotionWrap from '../wrapper/MotionWrap';
 
 const stats = [
-  { value: '9.26', label: 'CGPA', icon: 'bxs-graduation' },
+  { value: '1', label: 'Live SaaS Product', icon: 'bx-rocket' },
+  { value: '90+', label: 'Hrs/Month Automated', icon: 'bx-time-five' },
+  { value: '6+', label: 'Automotive Programs', icon: 'bx-car' },
   { value: '650+', label: 'LeetCode Solved', icon: 'bx-code-curly' },
-  { value: '1700+', label: 'Contest Rating', icon: 'bx-trophy' },
-  { value: '2+', label: 'Internships', icon: 'bx-briefcase-alt-2' },
 ];
 
 const About = () => {
@@ -17,10 +17,10 @@ const About = () => {
         <div className="about__header">
           <span className="section-tag">{'// about me'}</span>
           <h2 className="section-title">
-            Passionate Engineer &amp; <span className="gradient-text">Problem Solver</span>
+            Engineer by Day, <span className="gradient-text">Builder Always</span>
           </h2>
           <p className="section-subtitle">
-            Building meaningful software at the intersection of full-stack development and AI.
+            Shipping production systems at a global company — and products &amp; websites of my own.
           </p>
         </div>
 
@@ -31,7 +31,7 @@ const About = () => {
               <img src={require('../../assests/pfp.jpg')} alt="Anuj Srivastava" className="about__img" />
               <div className="about__img-badge about__img-badge--1">
                 <i className="bx bxs-zap" />
-                <span>Open to Opportunities</span>
+                <span>Open for Freelance</span>
               </div>
               <div className="about__img-badge about__img-badge--2">
                 <i className="bx bxs-map" />
@@ -44,15 +44,17 @@ const About = () => {
           <div className="about__right">
             <div className="about__text">
               <p>
-                I'm a final-year B.Tech student in Computer Science &amp; Engineering (AI &amp; ML)
-                at <strong>Bennett University</strong> with a CGPA of 9.26. Currently interning as an
-                SDE at <strong>Here Technologies</strong>, where I engineered a production automation
-                framework that saved 90 engineer-hours per month.
+                I'm a Software Engineer II at <strong>HERE Technologies</strong>, where I've
+                built automation frameworks for ADAS map production across 6+ automotive
+                programs (BMW, Continental, Subaru, GM) — eliminating 90+ engineer-hours of
+                manual work every month.
               </p>
               <p>
-                I love building end-to-end products — from React frontends to FastAPI backends to
-                CNN models. When not coding, I'm grinding LeetCode (650+ problems, 1700+ rating) or
-                participating in hackathons.
+                Outside work, I ship real products. I built and launched{' '}
+                <strong>BankXL</strong> — an AI-powered SaaS with paying users that converts
+                bank statements into Excel in seconds. I also design and build modern,
+                fast websites for clients as a freelancer. B.Tech in CSE (AI &amp; ML) from
+                Bennett University, CGPA 9.15.
               </p>
             </div>
 
@@ -73,7 +75,7 @@ const About = () => {
             <div className="about__actions">
               <a href={CV} download className="btn btn-primary">
                 <i className="bx bx-download" />
-                Download CV
+                Download Resume
               </a>
               <a href="#contact" className="btn btn-outline">
                 <i className="bx bx-send" />
